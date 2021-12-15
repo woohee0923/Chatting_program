@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
 	struct tm *t;
 	time_t timer = time(NULL);
 	t = localtime(&timer);
-	printf(“%d-%d-%d %d:%d\n”, t->tm_year+1900, t->tm_mon+1, t->tm_mday, t->tm_hour, t->tm_min);
+	printf("%d-%d-%d %d:%d\n", t->tm_year+1900, t->tm_mon+1, t->tm_mday, t->tm_hour, t->tm_min);
 	
 	sprintf(name, "[%s]", argv[3]); // “[%s]”로 서식을 지정하여 name(argv[3])에 저장
 	//create socket
@@ -71,8 +71,8 @@ void * sendMsg(void * arg) {
 	int sock=*((int*)arg);
 	char name_msg[NAME_SIZE+BUF_SIZE];
 
-	printf(“ ========== join!!! Hello~ ========== \n”);
-	printf(“Hello~ %s!!!! \n”, name);
+	printf(" ========== join!!! Hello~ ========== \n");
+	printf("Hello~ %s!!!! \n", name);
 	
 	write(sock, name, strlen(name)); //null 문자 제외하고 서버로 문자열 보냄
 
@@ -83,15 +83,15 @@ void * sendMsg(void * arg) {
 			close(sock); //클라이언트 소켓 종료
 			exit(0); //프로그램 종료
 		}
-		if(!strcmp(msg, “change@\n”)) {
+		if(!strcmp(msg, "change@\n")) {
 			char nameTemp[100];
-			printf(“\nChange nickname -> ”);
-			scanf(“%s”, nameTemp);
-			sprintf(name, “[%s]”, nameTemp);
-			printf(“\nComplete. \n”);
+			printf("\nChange nickname -> ");
+			scanf("%s", nameTemp);
+			sprintf(name, "[%s]", nameTemp);
+			printf("\nComplete. \n");
 			continue;
 		}
-		if(!strcmp(msg, “clear@\n”)) {
+		if(!strcmp(msg, "clear@\n")) {
 			system(“clear”);
 		}
 		
