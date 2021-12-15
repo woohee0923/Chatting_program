@@ -50,7 +50,7 @@ int main(int argc, char *argv[]) {
 	
 	//error (TCP 통신용 서버 소켓 생성 실패)
 	if (connect(sock, (struct sockaddr*) & serv_addr, sizeof(serv_addr)) == -1) //서버 주소 정보를 기반으로 연결 요청, 이때 비로소 클라이언트 소켓이 됨 
-  {
+  	{
 		errorHandling("connecting error occurred");
 	}
 	
